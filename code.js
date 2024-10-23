@@ -1,4 +1,11 @@
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: "O Senhor dos Anéis",
+        author: "J.R.R. Tolkien",
+        pages: 1178,
+        read: false
+      }
+];
 
 function Book (title, author, pages, read) {
     this.title = title
@@ -11,20 +18,12 @@ function addBookToLibrary (book) {
     myLibrary.push(book)
 }
 
-/* Essa parte vai ser um dialog */
-let teste1 = new Book ('titulo1','autor1',111,'true')
+const livro2 = new Book('Teste titulo','Teste autor',222,true)
+addBookToLibrary(livro2)
 
-/* Um botão de ADICIONAR */
-addBookToLibrary(teste1)
+function displayLibrary (myLibrary) {
+    for (const livro of myLibrary)
+        console.log(`Título: ${livro.title}, Autor: ${livro.author}, Páginas: ${livro.pages}, Lido: ${livro.read}`)
+}
 
-console.log(myLibrary)
-
-/* Tudo dentro da função DISPLAY LIBRARY */
-const container = document.querySelector('.container')
-
-let div1 = document.createElement('div')
-div1.classList.add('teste')
-/* UM LOOP FOR ... OF para capturar TITULO, AUTOR, PAG */
-div1.textContent = myLibrary[0].author
-
-container.appendChild(div1)
+displayLibrary(myLibrary)
