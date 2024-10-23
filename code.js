@@ -9,7 +9,7 @@ function Book (title, author, pages, read) {
 }
 
 function addBookToLibrary (book) {
-    myLibrary.push(book)
+        myLibrary.push(book)
 }
 
 function displayLibrary () {
@@ -41,13 +41,16 @@ const addButton = document.querySelector('#addBook')
 addButton.addEventListener('click',function (event){
     event.preventDefault()
 
-    const title = document.getElementById('title').value
-    const author = document.getElementById('author').value
-    const pages = document.getElementById('pages').value
-
-    let livro = new Book(title,author,pages)
-
-    addBookToLibrary(livro)
-    displayLibrary()
-
+    const title = document.getElementById('title').value.trim();
+    const author = document.getElementById('author').value.trim();
+    const pages = document.getElementById('pages').value.trim();
+    
+    if (title === "" || author === "" || pages === "") {
+        alert('Por favor, preencha todos os campos.');
+    }
+    else {
+        let livro = new Book(title,author,pages)
+        addBookToLibrary(livro)
+        displayLibrary()
+    }
 })
