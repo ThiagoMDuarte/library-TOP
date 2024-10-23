@@ -29,7 +29,6 @@ function displayLibrary (myLibrary) {
     const libraryDiv = document.querySelector('.myLibrary')
 
     for (const livro of myLibrary) {
-        /* Cria a Div do Livro chamada book */
         const bookDiv = document.createElement('div')
         bookDiv.className = 'book'
 
@@ -51,3 +50,11 @@ function displayLibrary (myLibrary) {
 
 
 displayLibrary(myLibrary)
+
+
+const addButton = document.querySelector('#addBook')
+addButton.addEventListener('click',buttonCLicked)
+
+function buttonCLicked (event) {
+    event.preventDefault()
+}

@@ -7,12 +7,38 @@
     <script src="code.js" defer></script>
 </head>
 <body>
+    <div class="header">
+            <form action="#" method="post">
+                <p>      
+                    <label for="title">
+                        Title:
+                        <input type="text" id="title" name="BookTitle" required />
+                    </label>
+                </p>
+                <p>      
+                    <label for="author">
+                        Author Name:
+                        <input type="text" id="author" name="AuthorName" required />
+                    </label>
+                </p>
+                <p>      
+                    <label for="pages">
+                        Number of Pages:
+                        <input type="text" id="pages" name="NumberPAges" required />
+                    </label>
+                </p>
+                <p>
+                    <button id="addBook" type="submit">Add Book</button>
+                </p>
+            </form>
+    </div>
     <div class="myLibrary">
         <div class="book">
             <h3>Titulo Livro</h1>
             <p>Autor: Nome do Autor</p>
             <p>Numero de paginas</p>
         </div>
+        
     </div>
 </body>
 </html>
