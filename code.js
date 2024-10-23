@@ -1,32 +1,21 @@
-const myLibrary = [
-    {
-        title: "O Senhor dos Anéis",
-        author: "J.R.R. Tolkien",
-        pages: 1178
-    },
-    {
-        title: "1984",
-        author: "George Orwell",
-        pages: 328
-    }
-];
+const myLibrary = [];
+
+displayLibrary()
 
 function Book (title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
-    //this.read = read
 }
 
 function addBookToLibrary (book) {
     myLibrary.push(book)
 }
 
-/* const livro2 = new Book('Teste titulo','Teste autor',222,true)
-addBookToLibrary(livro2) */
+function displayLibrary () {
 
-function displayLibrary (myLibrary) {
     const libraryDiv = document.querySelector('.myLibrary')
+    libraryDiv.innerHTML = ''
 
     for (const livro of myLibrary) {
         const bookDiv = document.createElement('div')
@@ -48,13 +37,17 @@ function displayLibrary (myLibrary) {
         libraryDiv.appendChild(bookDiv)
 }}
 
-
-displayLibrary(myLibrary)
-
-
 const addButton = document.querySelector('#addBook')
-addButton.addEventListener('click',buttonCLicked)
-
-function buttonCLicked (event) {
+addButton.addEventListener('click',function (event){
     event.preventDefault()
-}
+
+    const title = document.getElementById('title').value
+    const author = document.getElementById('author').value
+    const pages = document.getElementById('pages').value
+
+    let livro = new Book(title,author,pages)
+
+    addBookToLibrary(livro)
+    displayLibrary()
+
+})
