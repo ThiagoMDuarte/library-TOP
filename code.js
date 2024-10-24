@@ -1,8 +1,14 @@
 const myLibrary = [
-    { title: 'O Senhor dos Anéis', author: 'J.R.R. Tolkien' },
-    { title: '1984', author: 'George Orwell' },
+    { title: 'O Senhor dos Anéis', author: 'J.R.R. Tolkien', read: true},
+    { title: '1984', author: 'George Orwell', read: false},
 ]; 
 
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+}
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
@@ -25,6 +31,9 @@ function displayLibrary() {
         const pages = document.createElement('p');
         pages.textContent = livro.pages;
 
+        const read = document.createElement('p');
+        read.textContent = livro.read ? 'Status: Lido' : 'Status: Não Lido';
+
         const delBtn = document.createElement('button');
         delBtn.textContent = 'Delete';
         delBtn.classList.add('deleteButton');
@@ -34,6 +43,7 @@ function displayLibrary() {
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
         bookDiv.appendChild(pages);
+        bookDiv.appendChild(read);
         bookDiv.appendChild(delBtn);
 
         libraryDiv.appendChild(bookDiv);
@@ -53,9 +63,10 @@ document.getElementById('bookForm').addEventListener('submit', function(event) {
     const title = document.getElementById('title').value.trim();
     const author = document.getElementById('author').value.trim();
     const pages = document.getElementById('pages').value.trim();
+    const read = document.getElementById('read').checked;
     
-        let livro = { title, author, pages };
-        addBookToLibrary(livro); 
+        let newLivro = new Book(title, author, pages, read);
+        addBookToLibrary(newLivro); 
         displayLibrary(); 
         document.getElementById('bookForm').reset();
 });
