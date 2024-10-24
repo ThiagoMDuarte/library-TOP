@@ -1,4 +1,10 @@
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: 'Titulo do Livro',
+        author: 'Autor do livro',
+        pages: 222
+    }
+];
 
 displayLibrary()
 
@@ -25,10 +31,10 @@ function displayLibrary () {
         title.textContent = livro.title
 
         const author = document.createElement('p')
-        author.textContent = livro.author
+        author.textContent = `Autor: ${livro.author}`
 
         const pages = document.createElement('p')
-        pages.textContent = livro.pages
+        pages.textContent = `Número de páginas: ${livro.pages}`
 
         bookDiv.appendChild(title)
         bookDiv.appendChild(author)
@@ -37,20 +43,16 @@ function displayLibrary () {
         libraryDiv.appendChild(bookDiv)
 }}
 
-const addButton = document.querySelector('#addBook')
-addButton.addEventListener('click',function (event){
-    event.preventDefault()
+const form = document.querySelector('#bookForm')
+
+form.addEventListener('submit',function(event){
+    event.preventDefault();
 
     const title = document.getElementById('title').value.trim();
     const author = document.getElementById('author').value.trim();
     const pages = document.getElementById('pages').value.trim();
     
-    if (title === "" || author === "" || pages === "") {
-        alert('Por favor, preencha todos os campos.');
-    }
-    else {
         let livro = new Book(title,author,pages)
         addBookToLibrary(livro)
         displayLibrary()
-    }
 })
