@@ -3,11 +3,20 @@
     padding: 0;
     box-sizing: border-box;
   }
+:root {
+    --background-color-form : #3a415a;
+    --background-color-library: #cbdad5;
+    --background-color-button-lido: #699f73;
+    --background-color-button: #566981;
+    --text-color: #1a1a28;
+    --background-color--delete-button: #815656;
+}
 
 body {
     display: flex;
     width: 100vw;
     height: 100vh;
+    color: var(--text-color);
 }
 
 .header {
@@ -16,21 +25,21 @@ body {
     padding: 3%;
     height: 100%;
     width: 30vw;
-    border: 1px solid red;
-    background-color: rgb(18, 34, 104);
+    background-color: var(--background-color-form);
+    color: var(--background-color-library);
+    box-shadow: inset -2px 0 2px var(--background-color-library);
 }
 form input {
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #000000;
     border-radius: 5px;
     width: 100%;
   }
 
 button {
     padding: 10px;
-    background-color: #007BFF;
-    color: white;
+    background-color: var(--background-color-button);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -43,11 +52,21 @@ button {
     width: 70vw; 
     padding: 3%;
     text-align: center;
-    background-color: rgb(102, 102, 102);
-    border: 1px blue solid;
+    background-color: var(--background-color-library);
   }
 
 .book {
     align-content: center;
-    border: 1px solid black;
+}
+
+.book > button {
+    margin: 2%;
+}
+
+.book > .deleteButton {
+    background-color: var(--background-color--delete-button);
+}
+
+.lido {
+    background-color: var(--background-color-button-lido);
 }
