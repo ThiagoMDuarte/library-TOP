@@ -38,7 +38,7 @@ button {
 
   .myLibrary {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 300px));
     gap: 3%;
     width: 70vw; 
     padding: 3%;
@@ -46,3 +46,8 @@ button {
     background-color: rgb(102, 102, 102);
     border: 1px blue solid;
   }
+
+.book {
+    align-content: center;
+    border: 1px solid black;
+}
